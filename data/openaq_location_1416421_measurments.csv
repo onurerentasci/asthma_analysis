@@ -1,0 +1,13 @@
+location_id,location_name,parameter,value,unit,datetimeUtc,datetimeLocal,timezone,latitude,longitude,country_iso,isMobile,isMonitor,owner_name,provider
+1416421,"Şırnak - Silopi.","co",0.129,"µg/m³","2023-08-11T08:00:00Z","2023-08-11T11:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","co",0.132,"µg/m³","2023-08-11T10:00:00Z","2023-08-11T13:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","no2",14.063,"µg/m³","2023-08-11T08:00:00Z","2023-08-11T11:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","no2",15.004,"µg/m³","2023-08-11T10:00:00Z","2023-08-11T13:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","o3",46.331,"µg/m³","2023-08-11T08:00:00Z","2023-08-11T11:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","o3",54.816,"µg/m³","2023-08-11T10:00:00Z","2023-08-11T13:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","pm10",84.222,"µg/m³","2023-08-11T08:00:00Z","2023-08-11T11:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","pm10",83.192,"µg/m³","2023-08-11T10:00:00Z","2023-08-11T13:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","pm25",27.719,"µg/m³","2023-08-11T08:00:00Z","2023-08-11T11:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","pm25",27.593,"µg/m³","2023-08-11T10:00:00Z","2023-08-11T13:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","so2",6.142,"µg/m³","2023-08-11T08:00:00Z","2023-08-11T11:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"
+1416421,"Şırnak - Silopi.","so2",9.98,"µg/m³","2023-08-11T10:00:00Z","2023-08-11T13:00:00+03:00","Europe/Istanbul",37.24708479236901,42.46493583604872,,,,"Unknown Governmental Organization","Türkiye"

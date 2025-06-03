@@ -1,0 +1,1227 @@
+<!DOCTYPE html>
+<html>
+<head>
+    
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8" />
+    
+        <script>
+            L_NO_TOUCH = false;
+            L_DISABLE_3D = false;
+        </script>
+    
+    <style>html, body {width: 100%;height: 100%;margin: 0;padding: 0;}</style>
+    <style>#map {position:absolute;top:0;bottom:0;right:0;left:0;}</style>
+    <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.js"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/leaflet@1.9.3/dist/leaflet.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.2.0/css/all.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Leaflet.awesome-markers/2.0.2/leaflet.awesome-markers.css"/>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/python-visualization/folium/folium/templates/leaflet.awesome.rotate.min.css"/>
+    
+            <meta name="viewport" content="width=device-width,
+                initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+            <style>
+                #map_ab792fe70d3fea6f644a096b0047c33f {
+                    position: relative;
+                    width: 100.0%;
+                    height: 100.0%;
+                    left: 0.0%;
+                    top: 0.0%;
+                }
+                .leaflet-container { font-size: 1rem; }
+            </style>
+        
+</head>
+<body>
+    
+    
+<div style="position: fixed; bottom: 50px; left: 50px; z-index:9999; background-color:white; 
+     padding:10px; border:2px solid grey; border-radius:5px">
+<h4>Astım Riski Seviyeleri</h4>
+<div><span style="background-color:green; display:inline-block; width:15px; height:15px; 
+     border-radius:50%; margin-right:5px"></span>Düşük Risk (0)</div>
+<div><span style="background-color:orange; display:inline-block; width:15px; height:15px; 
+     border-radius:50%; margin-right:5px"></span>Orta Risk (1)</div>
+<div><span style="background-color:red; display:inline-block; width:15px; height:15px; 
+     border-radius:50%; margin-right:5px"></span>Yüksek Risk (2)</div>
+</div>
+    
+            <div class="folium-map" id="map_ab792fe70d3fea6f644a096b0047c33f" ></div>
+        
+</body>
+<script>
+    
+    
+            var map_ab792fe70d3fea6f644a096b0047c33f = L.map(
+                "map_ab792fe70d3fea6f644a096b0047c33f",
+                {
+                    center: [39.0, 35.0],
+                    crs: L.CRS.EPSG3857,
+                    ...{
+  "zoom": 6,
+  "zoomControl": true,
+  "preferCanvas": false,
+}
+
+                }
+            );
+
+            
+
+        
+    
+            var tile_layer_62edc7f01206817689fb4d33d982467d = L.tileLayer(
+                "https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png",
+                {
+  "minZoom": 0,
+  "maxZoom": 20,
+  "maxNativeZoom": 20,
+  "noWrap": false,
+  "attribution": "\u0026copy; \u003ca href=\"https://www.openstreetmap.org/copyright\"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href=\"https://carto.com/attributions\"\u003eCARTO\u003c/a\u003e",
+  "subdomains": "abcd",
+  "detectRetina": false,
+  "tms": false,
+  "opacity": 1,
+}
+
+            );
+        
+    
+            tile_layer_62edc7f01206817689fb4d33d982467d.addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+            var circle_marker_5df9f11cd504f28d99a8182da62b6128 = L.circleMarker(
+                [37.7553113473677, 38.277780122955],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_41cfe0757b72b86b803b47fc85047ec5 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d052007e4d0909e5ef26e69217ea12ab = $(`<div id="html_d052007e4d0909e5ef26e69217ea12ab" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Adıyaman<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_41cfe0757b72b86b803b47fc85047ec5.setContent(html_d052007e4d0909e5ef26e69217ea12ab);
+            
+        
+
+        circle_marker_5df9f11cd504f28d99a8182da62b6128.bindPopup(popup_41cfe0757b72b86b803b47fc85047ec5)
+        ;
+
+        
+    
+    
+            var circle_marker_2197aee5381750701379e1fcfe8b4a70 = L.circleMarker(
+                [40.75483200821518, 35.693282736194035],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.40175425099138, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_bea7b4ae9a816c502e3942ee56b7f72d = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c1fe254deab731db9569f887dc399be2 = $(`<div id="html_c1fe254deab731db9569f887dc399be2" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Amasya<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 13,000</div>`)[0];
+                popup_bea7b4ae9a816c502e3942ee56b7f72d.setContent(html_c1fe254deab731db9569f887dc399be2);
+            
+        
+
+        circle_marker_2197aee5381750701379e1fcfe8b4a70.bindPopup(popup_bea7b4ae9a816c502e3942ee56b7f72d)
+        ;
+
+        
+    
+    
+            var circle_marker_ab5ce858f3d73e441d9e1836f019783d = L.circleMarker(
+                [41.1063340182046, 42.70524607018231],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_4ea60f8f84a191b82b4260495b2de10e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_acbf6e55c1b220158fa380f4b642c40a = $(`<div id="html_acbf6e55c1b220158fa380f4b642c40a" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Ardahan<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 4,000</div>`)[0];
+                popup_4ea60f8f84a191b82b4260495b2de10e.setContent(html_acbf6e55c1b220158fa380f4b642c40a);
+            
+        
+
+        circle_marker_ab5ce858f3d73e441d9e1836f019783d.bindPopup(popup_4ea60f8f84a191b82b4260495b2de10e)
+        ;
+
+        
+    
+    
+            var circle_marker_01fd40bb31b782ab5939c68e71828689 = L.circleMarker(
+                [41.321058040516306, 41.65479100860185],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.391066678319271, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_256ecc8a6a1ca9b07903d684bd20b5ac = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b14f6d8e9866d280b7b89799d38b2da5 = $(`<div id="html_b14f6d8e9866d280b7b89799d38b2da5" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Artvin<br><strong>Gerçek Risk:</strong> 0.50<br><strong>Tahmin Edilen Risk:</strong> 0.50<br><strong>Ölçüm Sayısı:</strong> 7,041</div>`)[0];
+                popup_256ecc8a6a1ca9b07903d684bd20b5ac.setContent(html_b14f6d8e9866d280b7b89799d38b2da5);
+            
+        
+
+        circle_marker_01fd40bb31b782ab5939c68e71828689.bindPopup(popup_256ecc8a6a1ca9b07903d684bd20b5ac)
+        ;
+
+        
+    
+    
+            var circle_marker_cefe0154039ac24b1cd5158ce7216507 = L.circleMarker(
+                [39.50162950399944, 43.32313112147268],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.40175425099138, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_4bf74f9c3de5780c70af9f6181fe8f89 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_45940db0567c0c0c325c3b62fdb57023 = $(`<div id="html_45940db0567c0c0c325c3b62fdb57023" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Ağrı<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 13,000</div>`)[0];
+                popup_4bf74f9c3de5780c70af9f6181fe8f89.setContent(html_45940db0567c0c0c325c3b62fdb57023);
+            
+        
+
+        circle_marker_cefe0154039ac24b1cd5158ce7216507.bindPopup(popup_4bf74f9c3de5780c70af9f6181fe8f89)
+        ;
+
+        
+    
+    
+            var circle_marker_7d9e2294dbc759f1c5272e7d714fd2af = L.circleMarker(
+                [41.6247660946489, 32.35655997882821],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_9104877b4987cd98e8b52d3f16e84f0f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_10523a67b7494d15a19aaa0cb654746f = $(`<div id="html_10523a67b7494d15a19aaa0cb654746f" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Bartın<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 6,000</div>`)[0];
+                popup_9104877b4987cd98e8b52d3f16e84f0f.setContent(html_10523a67b7494d15a19aaa0cb654746f);
+            
+        
+
+        circle_marker_7d9e2294dbc759f1c5272e7d714fd2af.bindPopup(popup_9104877b4987cd98e8b52d3f16e84f0f)
+        ;
+
+        
+    
+    
+            var circle_marker_b1657a6849b88e6714ea60f7f10e6e98 = L.circleMarker(
+                [37.9006101, 41.1289489],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_51244fbc2a628f45e0864b5a5597ec87 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2d4717d0bbf2db2527bba19d6de6555 = $(`<div id="html_c2d4717d0bbf2db2527bba19d6de6555" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Batman<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_51244fbc2a628f45e0864b5a5597ec87.setContent(html_c2d4717d0bbf2db2527bba19d6de6555);
+            
+        
+
+        circle_marker_b1657a6849b88e6714ea60f7f10e6e98.bindPopup(popup_51244fbc2a628f45e0864b5a5597ec87)
+        ;
+
+        
+    
+    
+            var circle_marker_48e7918da7904399497dd5a6c1c79036 = L.circleMarker(
+                [40.25443628978573, 40.22022268220901],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_8fbd312267511e5f0b0e1ea4b74b785e = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_37b70a89fca1f5a5db23ed1e68128e55 = $(`<div id="html_37b70a89fca1f5a5db23ed1e68128e55" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Bayburt<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 4,000</div>`)[0];
+                popup_8fbd312267511e5f0b0e1ea4b74b785e.setContent(html_37b70a89fca1f5a5db23ed1e68128e55);
+            
+        
+
+        circle_marker_48e7918da7904399497dd5a6c1c79036.bindPopup(popup_8fbd312267511e5f0b0e1ea4b74b785e)
+        ;
+
+        
+    
+    
+            var circle_marker_7d63ee03065a09e47f9aa515afd506d8 = L.circleMarker(
+                [38.8827408261743, 40.5047548042357],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_9fcbdebca8f317fecd0855298d1ed3c2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be7580a4140063ad86a55823c81b03b8 = $(`<div id="html_be7580a4140063ad86a55823c81b03b8" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Bingöl<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_9fcbdebca8f317fecd0855298d1ed3c2.setContent(html_be7580a4140063ad86a55823c81b03b8);
+            
+        
+
+        circle_marker_7d63ee03065a09e47f9aa515afd506d8.bindPopup(popup_9fcbdebca8f317fecd0855298d1ed3c2)
+        ;
+
+        
+    
+    
+            var circle_marker_a2682b902468c61d21d864f6bdd22a21 = L.circleMarker(
+                [40.687383000000004, 31.487921],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 12.649110640673516, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_1e608eb2106924790ff48d3da8ba0e2c = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4eedda785e4794ec160c12788dd5f81a = $(`<div id="html_4eedda785e4794ec160c12788dd5f81a" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Bolu<br><strong>Gerçek Risk:</strong> 1.33<br><strong>Tahmin Edilen Risk:</strong> 1.33<br><strong>Ölçüm Sayısı:</strong> 16,000</div>`)[0];
+                popup_1e608eb2106924790ff48d3da8ba0e2c.setContent(html_4eedda785e4794ec160c12788dd5f81a);
+            
+        
+
+        circle_marker_a2682b902468c61d21d864f6bdd22a21.bindPopup(popup_1e608eb2106924790ff48d3da8ba0e2c)
+        ;
+
+        
+    
+    
+            var circle_marker_9bd3e6ec3656fb41874d17167a92f3c9 = L.circleMarker(
+                [37.9156993138389, 40.2254655375106],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_0b541f4cdb028751da118229c31e8e34 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_eb8893f5e3220cd2142e099529c65d04 = $(`<div id="html_eb8893f5e3220cd2142e099529c65d04" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Diyarbakır<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_0b541f4cdb028751da118229c31e8e34.setContent(html_eb8893f5e3220cd2142e099529c65d04);
+            
+        
+
+        circle_marker_9bd3e6ec3656fb41874d17167a92f3c9.bindPopup(popup_0b541f4cdb028751da118229c31e8e34)
+        ;
+
+        
+    
+    
+            var circle_marker_d2e971af42bdd7996882c29ade8076b6 = L.circleMarker(
+                [40.84696701392343, 31.177025410312865],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 11.832159566199232, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_6c5550b69536a65c2b608a08684ad926 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_42d4cd5b9ffa87cdff7750abb1291dc3 = $(`<div id="html_42d4cd5b9ffa87cdff7750abb1291dc3" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Düzce<br><strong>Gerçek Risk:</strong> 1.67<br><strong>Tahmin Edilen Risk:</strong> 1.67<br><strong>Ölçüm Sayısı:</strong> 14,000</div>`)[0];
+                popup_6c5550b69536a65c2b608a08684ad926.setContent(html_42d4cd5b9ffa87cdff7750abb1291dc3);
+            
+        
+
+        circle_marker_d2e971af42bdd7996882c29ade8076b6.bindPopup(popup_6c5550b69536a65c2b608a08684ad926)
+        ;
+
+        
+    
+    
+            var circle_marker_6b2dfce98ff6ff89ed4c66bb1e84ce3a = L.circleMarker(
+                [38.674595810131855, 39.21166753061523],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_6cc8b524c762e6dcb4cc9680dc32b02a = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_0c4ff3a144dc69d423faef719e47a6d6 = $(`<div id="html_0c4ff3a144dc69d423faef719e47a6d6" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Elazığ<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_6cc8b524c762e6dcb4cc9680dc32b02a.setContent(html_0c4ff3a144dc69d423faef719e47a6d6);
+            
+        
+
+        circle_marker_6b2dfce98ff6ff89ed4c66bb1e84ce3a.bindPopup(popup_6cc8b524c762e6dcb4cc9680dc32b02a)
+        ;
+
+        
+    
+    
+            var circle_marker_b26c22313440e4d3ce49dd4f91db0b24 = L.circleMarker(
+                [41.945667, 34.992889],
+                {"bubblingMouseEvents": true, "color": "green", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "green", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_3de0d88d9a96bb97689d995a8e774859 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_fd4a0b6e21b763a3e0beaf13368c6763 = $(`<div id="html_fd4a0b6e21b763a3e0beaf13368c6763" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Erfelek<br><strong>Gerçek Risk:</strong> 0.00<br><strong>Tahmin Edilen Risk:</strong> 0.00<br><strong>Ölçüm Sayısı:</strong> 2,484</div>`)[0];
+                popup_3de0d88d9a96bb97689d995a8e774859.setContent(html_fd4a0b6e21b763a3e0beaf13368c6763);
+            
+        
+
+        circle_marker_b26c22313440e4d3ce49dd4f91db0b24.bindPopup(popup_3de0d88d9a96bb97689d995a8e774859)
+        ;
+
+        
+    
+    
+            var circle_marker_7a610633c6494cdb3cd876e5107feb93 = L.circleMarker(
+                [39.746445, 39.497068],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_02d0cc3ac4a69bfb109b8ca4649a4855 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_44c571bb72daf99f33ea68fe5596296b = $(`<div id="html_44c571bb72daf99f33ea68fe5596296b" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Erzincan<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 5,000</div>`)[0];
+                popup_02d0cc3ac4a69bfb109b8ca4649a4855.setContent(html_44c571bb72daf99f33ea68fe5596296b);
+            
+        
+
+        circle_marker_7a610633c6494cdb3cd876e5107feb93.bindPopup(popup_02d0cc3ac4a69bfb109b8ca4649a4855)
+        ;
+
+        
+    
+    
+            var circle_marker_a7b3439f3396a92804bed6d5575da1d9 = L.circleMarker(
+                [39.925323003461145, 41.333047615219456],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.053113534018005, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_fd37edbfc34a000034e6a68979312590 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_77fc1dd8a207242df19c75b4bf15b64a = $(`<div id="html_77fc1dd8a207242df19c75b4bf15b64a" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Erzurum<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 19,749</div>`)[0];
+                popup_fd37edbfc34a000034e6a68979312590.setContent(html_77fc1dd8a207242df19c75b4bf15b64a);
+            
+        
+
+        circle_marker_a7b3439f3396a92804bed6d5575da1d9.bindPopup(popup_fd37edbfc34a000034e6a68979312590)
+        ;
+
+        
+    
+    
+            var circle_marker_b4266b814090e8425b264e0d2c08f36f = L.circleMarker(
+                [41.0271389, 37.5000556],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_942539aa46eb0238a3e6a51e314594f7 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a95590760ed71719d478315941e77a70 = $(`<div id="html_a95590760ed71719d478315941e77a70" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Fatsa<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 3,000</div>`)[0];
+                popup_942539aa46eb0238a3e6a51e314594f7.setContent(html_a95590760ed71719d478315941e77a70);
+            
+        
+
+        circle_marker_b4266b814090e8425b264e0d2c08f36f.bindPopup(popup_942539aa46eb0238a3e6a51e314594f7)
+        ;
+
+        
+    
+    
+            var circle_marker_30106bdb7b1106f0b5e7be903c95f41f = L.circleMarker(
+                [37.04754058718067, 37.45285241865327],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.307340773183535, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_38b777d63d94409a45be3daf14bb46eb = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d0988373fa9e082443ce95779fe826ec = $(`<div id="html_d0988373fa9e082443ce95779fe826ec" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Gaziantep<br><strong>Gerçek Risk:</strong> 1.60<br><strong>Tahmin Edilen Risk:</strong> 1.80<br><strong>Ölçüm Sayısı:</strong> 20,470</div>`)[0];
+                popup_38b777d63d94409a45be3daf14bb46eb.setContent(html_d0988373fa9e082443ce95779fe826ec);
+            
+        
+
+        circle_marker_30106bdb7b1106f0b5e7be903c95f41f.bindPopup(popup_38b777d63d94409a45be3daf14bb46eb)
+        ;
+
+        
+    
+    
+            var circle_marker_cb13fb499d7055639196350353dd1808 = L.circleMarker(
+                [37.16903524242987, 37.54248160868882],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_af57c62284ed80cab83d237277b9ac12 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3cf3c0e86cd9b443023700751e701216 = $(`<div id="html_3cf3c0e86cd9b443023700751e701216" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Gaziantep-Atapark<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 4,000</div>`)[0];
+                popup_af57c62284ed80cab83d237277b9ac12.setContent(html_3cf3c0e86cd9b443023700751e701216);
+            
+        
+
+        circle_marker_cb13fb499d7055639196350353dd1808.bindPopup(popup_af57c62284ed80cab83d237277b9ac12)
+        ;
+
+        
+    
+    
+            var circle_marker_4296c36391a004ca791b7054ade052a5 = L.circleMarker(
+                [40.911811629277835, 38.37427465906889],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8.94427190999916, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_6190b3d8ac20e4367076472d07e7c922 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_506cdc3f3f01cbb137974d18dfae09ae = $(`<div id="html_506cdc3f3f01cbb137974d18dfae09ae" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Giresun<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.50<br><strong>Ölçüm Sayısı:</strong> 8,000</div>`)[0];
+                popup_6190b3d8ac20e4367076472d07e7c922.setContent(html_506cdc3f3f01cbb137974d18dfae09ae);
+            
+        
+
+        circle_marker_4296c36391a004ca791b7054ade052a5.bindPopup(popup_6190b3d8ac20e4367076472d07e7c922)
+        ;
+
+        
+    
+    
+            var circle_marker_6173f07e9562a3661791d473df77bccd = L.circleMarker(
+                [40.4597797058921, 39.4804561604182],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_b2d7e92ee99b22b3284be6923c97e9f1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bbb59e16b87fed967ff7dc9def6d5feb = $(`<div id="html_bbb59e16b87fed967ff7dc9def6d5feb" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Gümüşhane<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 4,010</div>`)[0];
+                popup_b2d7e92ee99b22b3284be6923c97e9f1.setContent(html_bbb59e16b87fed967ff7dc9def6d5feb);
+            
+        
+
+        circle_marker_6173f07e9562a3661791d473df77bccd.bindPopup(popup_b2d7e92ee99b22b3284be6923c97e9f1)
+        ;
+
+        
+    
+    
+            var circle_marker_4690df57abdecf7eda40d936c160b96d = L.circleMarker(
+                [37.574391, 43.7387312],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_3d9a845f2c5c66b554396b107b128e01 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_33c57290771824e730490b349a8c3fe6 = $(`<div id="html_33c57290771824e730490b349a8c3fe6" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Hakkari<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_3d9a845f2c5c66b554396b107b128e01.setContent(html_33c57290771824e730490b349a8c3fe6);
+            
+        
+
+        circle_marker_4690df57abdecf7eda40d936c160b96d.bindPopup(popup_3d9a845f2c5c66b554396b107b128e01)
+        ;
+
+        
+    
+    
+            var circle_marker_af344dc1369db685d65999eb6938e98a = L.circleMarker(
+                [36.28266188784586, 36.12913569294477],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 15.045929682143273, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_390fc1b8c0550b44f8cca82b8a2dced1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_e7251aa9ec352b459de1c37a02c9ee3e = $(`<div id="html_e7251aa9ec352b459de1c37a02c9ee3e" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Hatay<br><strong>Gerçek Risk:</strong> 1.40<br><strong>Tahmin Edilen Risk:</strong> 1.40<br><strong>Ölçüm Sayısı:</strong> 22,638</div>`)[0];
+                popup_390fc1b8c0550b44f8cca82b8a2dced1.setContent(html_e7251aa9ec352b459de1c37a02c9ee3e);
+            
+        
+
+        circle_marker_af344dc1369db685d65999eb6938e98a.bindPopup(popup_390fc1b8c0550b44f8cca82b8a2dced1)
+        ;
+
+        
+    
+    
+            var circle_marker_cff1b37320e8c5d1b688b6b06353d39e = L.circleMarker(
+                [39.86092302509195, 44.339733536900596],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.0, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_570e4678a63b0ea01002468bb15381ee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_aec6f6679ddff37c6b726fa960442a53 = $(`<div id="html_aec6f6679ddff37c6b726fa960442a53" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Iğdır<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 10,000</div>`)[0];
+                popup_570e4678a63b0ea01002468bb15381ee.setContent(html_aec6f6679ddff37c6b726fa960442a53);
+            
+        
+
+        circle_marker_cff1b37320e8c5d1b688b6b06353d39e.bindPopup(popup_570e4678a63b0ea01002468bb15381ee)
+        ;
+
+        
+    
+    
+            var circle_marker_cd5472982ab6ce5831fa85b2a7648ded = L.circleMarker(
+                [37.734994406021336, 36.99327038042624],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 13.449163542763543, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_47a6c4afb4245f10bf4d7d69c1bd3746 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_47e059e3b32f386606b1ca9d5c2525b9 = $(`<div id="html_47e059e3b32f386606b1ca9d5c2525b9" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Kahramanmaraş<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 18,088</div>`)[0];
+                popup_47a6c4afb4245f10bf4d7d69c1bd3746.setContent(html_47e059e3b32f386606b1ca9d5c2525b9);
+            
+        
+
+        circle_marker_cd5472982ab6ce5831fa85b2a7648ded.bindPopup(popup_47a6c4afb4245f10bf4d7d69c1bd3746)
+        ;
+
+        
+    
+    
+            var circle_marker_0aee967da5afddee8cd21d024b0f4307 = L.circleMarker(
+                [41.225191499999994, 32.648508],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.488088481701515, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_6df7ca9ae2c416993942c97a50312902 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_92e4c473b3783b63582840f67fbf20cc = $(`<div id="html_92e4c473b3783b63582840f67fbf20cc" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Karabük<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 11,000</div>`)[0];
+                popup_6df7ca9ae2c416993942c97a50312902.setContent(html_92e4c473b3783b63582840f67fbf20cc);
+            
+        
+
+        circle_marker_0aee967da5afddee8cd21d024b0f4307.bindPopup(popup_6df7ca9ae2c416993942c97a50312902)
+        ;
+
+        
+    
+    
+            var circle_marker_ef5c822dc3ef188b27096616fa69b93e = L.circleMarker(
+                [41.192103, 32.627233],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_1a14bacd8fd69a9d13af4469d7cc094f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_8e751744a4804815aaaad0fa4e1a3bbb = $(`<div id="html_8e751744a4804815aaaad0fa4e1a3bbb" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Kardemir 1<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 5,000</div>`)[0];
+                popup_1a14bacd8fd69a9d13af4469d7cc094f.setContent(html_8e751744a4804815aaaad0fa4e1a3bbb);
+            
+        
+
+        circle_marker_ef5c822dc3ef188b27096616fa69b93e.bindPopup(popup_1a14bacd8fd69a9d13af4469d7cc094f)
+        ;
+
+        
+    
+    
+            var circle_marker_81f0c564026155b453b5b4eb67ec0f22 = L.circleMarker(
+                [41.179742, 32.630978],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_d292e81f1a5feb9b0b8312523f7e3b12 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_4e59fbf3784ca2a6d8c66398c5d14028 = $(`<div id="html_4e59fbf3784ca2a6d8c66398c5d14028" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Kardemir 2<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 4,000</div>`)[0];
+                popup_d292e81f1a5feb9b0b8312523f7e3b12.setContent(html_4e59fbf3784ca2a6d8c66398c5d14028);
+            
+        
+
+        circle_marker_81f0c564026155b453b5b4eb67ec0f22.bindPopup(popup_d292e81f1a5feb9b0b8312523f7e3b12)
+        ;
+
+        
+    
+    
+            var circle_marker_a7c7404eb9f91e34c1dcda3c698ef521 = L.circleMarker(
+                [40.60504347799085, 43.10448690555501],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_a353284d4724776c2d0f1993f60b5b97 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_a693e544601b28c1e811ec576154fd38 = $(`<div id="html_a693e544601b28c1e811ec576154fd38" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Kars<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 5,000</div>`)[0];
+                popup_a353284d4724776c2d0f1993f60b5b97.setContent(html_a693e544601b28c1e811ec576154fd38);
+            
+        
+
+        circle_marker_a7c7404eb9f91e34c1dcda3c698ef521.bindPopup(popup_a353284d4724776c2d0f1993f60b5b97)
+        ;
+
+        
+    
+    
+            var circle_marker_3b02949d74d0ee9f648f9471b59a7977 = L.circleMarker(
+                [41.53550619755249, 33.63580670151755],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.9498743710662, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_3db4252d53a8555820a0ff3cef97732b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5954a2873499524f8aee78c951983c19 = $(`<div id="html_5954a2873499524f8aee78c951983c19" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Kastamonu<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 0.50<br><strong>Ölçüm Sayısı:</strong> 9,900</div>`)[0];
+                popup_3db4252d53a8555820a0ff3cef97732b.setContent(html_5954a2873499524f8aee78c951983c19);
+            
+        
+
+        circle_marker_3b02949d74d0ee9f648f9471b59a7977.bindPopup(popup_3db4252d53a8555820a0ff3cef97732b)
+        ;
+
+        
+    
+    
+            var circle_marker_e06dd1df39c5482242feb095aa4f7726 = L.circleMarker(
+                [36.7153649594248, 37.1271605546817],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_939ceb9cd9e6639dbb284f313476f4b1 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_6257e9a5df8dd331df0fc349890b5162 = $(`<div id="html_6257e9a5df8dd331df0fc349890b5162" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Kilis<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 6,000</div>`)[0];
+                popup_939ceb9cd9e6639dbb284f313476f4b1.setContent(html_6257e9a5df8dd331df0fc349890b5162);
+            
+        
+
+        circle_marker_e06dd1df39c5482242feb095aa4f7726.bindPopup(popup_939ceb9cd9e6639dbb284f313476f4b1)
+        ;
+
+        
+    
+    
+            var circle_marker_b4c8e915b01c599d326b37dbed55f3d4 = L.circleMarker(
+                [38.35004274339389, 38.341880518550376],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_bddfb184f525a683597bf422bfd597d3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_c2704bc248af930604d652ea8b8d7c9a = $(`<div id="html_c2704bc248af930604d652ea8b8d7c9a" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Malatya<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_bddfb184f525a683597bf422bfd597d3.setContent(html_c2704bc248af930604d652ea8b8d7c9a);
+            
+        
+
+        circle_marker_b4c8e915b01c599d326b37dbed55f3d4.bindPopup(popup_bddfb184f525a683597bf422bfd597d3)
+        ;
+
+        
+    
+    
+            var circle_marker_bc40860ac28cd65ebecd6bf0b3d001dc = L.circleMarker(
+                [37.31641863513737, 40.727074232343],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_8e55d9add549fb8c3302804e56e88e80 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3b21a11f8fbbe746c82d276a9ed32d71 = $(`<div id="html_3b21a11f8fbbe746c82d276a9ed32d71" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Mardin<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_8e55d9add549fb8c3302804e56e88e80.setContent(html_3b21a11f8fbbe746c82d276a9ed32d71);
+            
+        
+
+        circle_marker_bc40860ac28cd65ebecd6bf0b3d001dc.bindPopup(popup_8e55d9add549fb8c3302804e56e88e80)
+        ;
+
+        
+    
+    
+            var circle_marker_a8a8fcd7fdc551464ec843d7ecc05396 = L.circleMarker(
+                [38.74859266096468, 41.50948507571759],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_350b9e6381ff79dd23f418cc90e46fa3 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_b706efa17d48860fab26a44492530384 = $(`<div id="html_b706efa17d48860fab26a44492530384" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Muş<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_350b9e6381ff79dd23f418cc90e46fa3.setContent(html_b706efa17d48860fab26a44492530384);
+            
+        
+
+        circle_marker_a8a8fcd7fdc551464ec843d7ecc05396.bindPopup(popup_350b9e6381ff79dd23f418cc90e46fa3)
+        ;
+
+        
+    
+    
+            var circle_marker_1e7857e38979470cbadad3067a4fa124 = L.circleMarker(
+                [41.026407591017744, 37.688734329773865],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.488088481701515, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_4dbf7c9a9974334be8d0e0c3d6d3436b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_7b1f516ce9020dffaaa5440cc1763a22 = $(`<div id="html_7b1f516ce9020dffaaa5440cc1763a22" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Ordu<br><strong>Gerçek Risk:</strong> 1.67<br><strong>Tahmin Edilen Risk:</strong> 1.67<br><strong>Ölçüm Sayısı:</strong> 11,000</div>`)[0];
+                popup_4dbf7c9a9974334be8d0e0c3d6d3436b.setContent(html_7b1f516ce9020dffaaa5440cc1763a22);
+            
+        
+
+        circle_marker_1e7857e38979470cbadad3067a4fa124.bindPopup(popup_4dbf7c9a9974334be8d0e0c3d6d3436b)
+        ;
+
+        
+    
+    
+            var circle_marker_b7705eb5fd3024775aca68aba9c73bca = L.circleMarker(
+                [37.08563841124032, 36.254329923810126],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_7b10ce66e690f62aabfeabcf2e32c7b0 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_1940efd2c66afbfa44554d3c9a0ef318 = $(`<div id="html_1940efd2c66afbfa44554d3c9a0ef318" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Osmaniye<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 6,000</div>`)[0];
+                popup_7b10ce66e690f62aabfeabcf2e32c7b0.setContent(html_1940efd2c66afbfa44554d3c9a0ef318);
+            
+        
+
+        circle_marker_b7705eb5fd3024775aca68aba9c73bca.bindPopup(popup_7b10ce66e690f62aabfeabcf2e32c7b0)
+        ;
+
+        
+    
+    
+            var circle_marker_57d3e44c1a87741379ce9f48ee74bf69 = L.circleMarker(
+                [41.10661552551265, 40.760365031912045],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 9.486832980505138, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_41d3df764e856bf2f654287f825b3ffe = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_3c1c3c52f7518ee17134ef97cbdefaba = $(`<div id="html_3c1c3c52f7518ee17134ef97cbdefaba" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Rize<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 0.50<br><strong>Ölçüm Sayısı:</strong> 9,000</div>`)[0];
+                popup_41d3df764e856bf2f654287f825b3ffe.setContent(html_3c1c3c52f7518ee17134ef97cbdefaba);
+            
+        
+
+        circle_marker_57d3e44c1a87741379ce9f48ee74bf69.bindPopup(popup_41d3df764e856bf2f654287f825b3ffe)
+        ;
+
+        
+    
+    
+            var circle_marker_2a98058e0847b036ac8c19de4f93db9f = L.circleMarker(
+                [41.32366786155924, 36.280494087549535],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.832396974191326, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_2384918b79230803bf53491eebd28594 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d40cef063231239184d60640ef6c74d5 = $(`<div id="html_d40cef063231239184d60640ef6c74d5" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Samsun<br><strong>Gerçek Risk:</strong> 1.50<br><strong>Tahmin Edilen Risk:</strong> 1.33<br><strong>Ölçüm Sayısı:</strong> 22,000</div>`)[0];
+                popup_2384918b79230803bf53491eebd28594.setContent(html_d40cef063231239184d60640ef6c74d5);
+            
+        
+
+        circle_marker_2a98058e0847b036ac8c19de4f93db9f.bindPopup(popup_2384918b79230803bf53491eebd28594)
+        ;
+
+        
+    
+    
+            var circle_marker_57d66962ecbb29fabd60cc965f4d9d72 = L.circleMarker(
+                [37.9320044197861, 41.9351227048567],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_91de3617e78e7dbacd72cfedb7db7908 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_39978471b34bbabf125ac00344fb363b = $(`<div id="html_39978471b34bbabf125ac00344fb363b" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Siirt<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_91de3617e78e7dbacd72cfedb7db7908.setContent(html_39978471b34bbabf125ac00344fb363b);
+            
+        
+
+        circle_marker_57d66962ecbb29fabd60cc965f4d9d72.bindPopup(popup_91de3617e78e7dbacd72cfedb7db7908)
+        ;
+
+        
+    
+    
+            var circle_marker_d5ae6e67bb8d345545310ca91bd96b9c = L.circleMarker(
+                [41.74514668303015, 34.966128263290074],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_c9789ba7efcae3b0aca7f66e577ad50b = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d30823d7eeef21a5327694f3710b650b = $(`<div id="html_d30823d7eeef21a5327694f3710b650b" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Sinop<br><strong>Gerçek Risk:</strong> 1.50<br><strong>Tahmin Edilen Risk:</strong> 1.50<br><strong>Ölçüm Sayısı:</strong> 6,000</div>`)[0];
+                popup_c9789ba7efcae3b0aca7f66e577ad50b.setContent(html_d30823d7eeef21a5327694f3710b650b);
+            
+        
+
+        circle_marker_d5ae6e67bb8d345545310ca91bd96b9c.bindPopup(popup_c9789ba7efcae3b0aca7f66e577ad50b)
+        ;
+
+        
+    
+    
+            var circle_marker_0ce73065f6788354339897f50fc40577 = L.circleMarker(
+                [40.49231354723644, 35.38542785210365],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_132c70ee5b37048dc9bb1060bb296782 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_bbfc229519ddbb513fd860b1a1ba1698 = $(`<div id="html_bbfc229519ddbb513fd860b1a1ba1698" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Suluova<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 3,000</div>`)[0];
+                popup_132c70ee5b37048dc9bb1060bb296782.setContent(html_bbfc229519ddbb513fd860b1a1ba1698);
+            
+        
+
+        circle_marker_0ce73065f6788354339897f50fc40577.bindPopup(popup_132c70ee5b37048dc9bb1060bb296782)
+        ;
+
+        
+    
+    
+            var circle_marker_0b5ad7bf10ca1a7afbce8c858a0d7a02 = L.circleMarker(
+                [40.45868629234939, 36.39884532502463],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.488088481701515, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_d477faaffcedf28563873e391c1a520f = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_be6e6e87a35cb7ec7674f85392a4cd1b = $(`<div id="html_be6e6e87a35cb7ec7674f85392a4cd1b" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Tokat<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 11,000</div>`)[0];
+                popup_d477faaffcedf28563873e391c1a520f.setContent(html_be6e6e87a35cb7ec7674f85392a4cd1b);
+            
+        
+
+        circle_marker_0b5ad7bf10ca1a7afbce8c858a0d7a02.bindPopup(popup_d477faaffcedf28563873e391c1a520f)
+        ;
+
+        
+    
+    
+            var circle_marker_6e820ac343a5829325633e2cb08486f6 = L.circleMarker(
+                [40.92829626593762, 39.80213315337305],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 14.142135623730951, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_e70f81bd7397944abd840e8753009f68 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_619b448761bd60aab078800954ef283c = $(`<div id="html_619b448761bd60aab078800954ef283c" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Trabzon<br><strong>Gerçek Risk:</strong> 1.20<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 20,000</div>`)[0];
+                popup_e70f81bd7397944abd840e8753009f68.setContent(html_619b448761bd60aab078800954ef283c);
+            
+        
+
+        circle_marker_6e820ac343a5829325633e2cb08486f6.bindPopup(popup_e70f81bd7397944abd840e8753009f68)
+        ;
+
+        
+    
+    
+            var circle_marker_24181fed5b7cc004461caddc3ecbbfdd = L.circleMarker(
+                [39.1038854895644, 39.5462753870767],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_ba77604a7824082a1463d227ff5fbb72 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_754de3e94dd52fa931ba4af282dcc998 = $(`<div id="html_754de3e94dd52fa931ba4af282dcc998" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Tunceli<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_ba77604a7824082a1463d227ff5fbb72.setContent(html_754de3e94dd52fa931ba4af282dcc998);
+            
+        
+
+        circle_marker_24181fed5b7cc004461caddc3ecbbfdd.bindPopup(popup_ba77604a7824082a1463d227ff5fbb72)
+        ;
+
+        
+    
+    
+            var circle_marker_849cfe7d135796573841a3b35164ee1b = L.circleMarker(
+                [38.5040180163859, 43.3712320382614],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_c7fc4e6d196e9668be6c9c5bd77c2cee = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_9ec60a8f327202b5ff6cd05e1c138ada = $(`<div id="html_9ec60a8f327202b5ff6cd05e1c138ada" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Van<br><strong>Gerçek Risk:</strong> 1.00<br><strong>Tahmin Edilen Risk:</strong> 1.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_c7fc4e6d196e9668be6c9c5bd77c2cee.setContent(html_9ec60a8f327202b5ff6cd05e1c138ada);
+            
+        
+
+        circle_marker_849cfe7d135796573841a3b35164ee1b.bindPopup(popup_c7fc4e6d196e9668be6c9c5bd77c2cee)
+        ;
+
+        
+    
+    
+            var circle_marker_eff7de969a2ce72a16f21d58fced4f77 = L.circleMarker(
+                [41.4523636625, 31.8281679],
+                {"bubblingMouseEvents": true, "color": "orange", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "orange", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 20.736682473336952, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_65089398b099a4abe44c4af4a8dc9ace = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_41d4e790e38d148212909b027c1a16be = $(`<div id="html_41d4e790e38d148212909b027c1a16be" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Zonguldak<br><strong>Gerçek Risk:</strong> 1.14<br><strong>Tahmin Edilen Risk:</strong> 1.14<br><strong>Ölçüm Sayısı:</strong> 43,001</div>`)[0];
+                popup_65089398b099a4abe44c4af4a8dc9ace.setContent(html_41d4e790e38d148212909b027c1a16be);
+            
+        
+
+        circle_marker_eff7de969a2ce72a16f21d58fced4f77.bindPopup(popup_65089398b099a4abe44c4af4a8dc9ace)
+        ;
+
+        
+    
+    
+            var circle_marker_111ca6154d8d3469e855fab532d43d12 = L.circleMarker(
+                [40.544123593116545, 34.95825754170857],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 10.488088481701515, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_2bfc913a563a27bff82235658d09d5d2 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_edff58fbc45cdd71e655c98a303e70b4 = $(`<div id="html_edff58fbc45cdd71e655c98a303e70b4" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Çorum<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 11,000</div>`)[0];
+                popup_2bfc913a563a27bff82235658d09d5d2.setContent(html_edff58fbc45cdd71e655c98a303e70b4);
+            
+        
+
+        circle_marker_111ca6154d8d3469e855fab532d43d12.bindPopup(popup_2bfc913a563a27bff82235658d09d5d2)
+        ;
+
+        
+    
+    
+            var circle_marker_059073e96fa93e202ba92e9c5d9eafc1 = L.circleMarker(
+                [37.1604175949112, 38.7867091478577],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_7b76d4767aae961ea45474d0b5b38769 = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_d19dc605c1a009f4a9f32c37665b05cd = $(`<div id="html_d19dc605c1a009f4a9f32c37665b05cd" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Şanlıurfa<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,000</div>`)[0];
+                popup_7b76d4767aae961ea45474d0b5b38769.setContent(html_d19dc605c1a009f4a9f32c37665b05cd);
+            
+        
+
+        circle_marker_059073e96fa93e202ba92e9c5d9eafc1.bindPopup(popup_7b76d4767aae961ea45474d0b5b38769)
+        ;
+
+        
+    
+    
+            var circle_marker_d2b8ca110f4f595fe7d631266bcf110d = L.circleMarker(
+                [37.384419847399805, 42.45990331785576],
+                {"bubblingMouseEvents": true, "color": "red", "dashArray": null, "dashOffset": null, "fill": true, "fillColor": "red", "fillOpacity": 0.7, "fillRule": "evenodd", "lineCap": "round", "lineJoin": "round", "opacity": 1.0, "radius": 8, "stroke": true, "weight": 2}
+            ).addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+    
+        var popup_bd0b0000cac5f76dff8631960b4f0eab = L.popup({
+  "maxWidth": 300,
+});
+
+        
+            
+                var html_5ae69e2dd46f282d3265f2966aeacbea = $(`<div id="html_5ae69e2dd46f282d3265f2966aeacbea" style="width: 100.0%; height: 100.0%;"><strong>Şehir:</strong> Şırnak<br><strong>Gerçek Risk:</strong> 2.00<br><strong>Tahmin Edilen Risk:</strong> 2.00<br><strong>Ölçüm Sayısı:</strong> 2,012</div>`)[0];
+                popup_bd0b0000cac5f76dff8631960b4f0eab.setContent(html_5ae69e2dd46f282d3265f2966aeacbea);
+            
+        
+
+        circle_marker_d2b8ca110f4f595fe7d631266bcf110d.bindPopup(popup_bd0b0000cac5f76dff8631960b4f0eab)
+        ;
+
+        
+    
+    
+            tile_layer_62edc7f01206817689fb4d33d982467d.addTo(map_ab792fe70d3fea6f644a096b0047c33f);
+        
+</script>
+</html>
